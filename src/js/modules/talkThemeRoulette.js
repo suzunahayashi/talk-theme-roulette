@@ -74,7 +74,7 @@ const talkThemeRoulette = () => {
   });
 
   function createTalkThemeItemElement(item) {
-    const talkthemeItemElement = document.createElement('li');
+    const talkThemeItemElement = document.createElement('li');
 
     const checkboxElement = document.createElement('input');
     checkboxElement.type = 'checkbox';
@@ -96,11 +96,11 @@ const talkThemeRoulette = () => {
     const titleElement = document.createElement('span');
     titleElement.textContent = item.title;
 
-    talkthemeItemElement.appendChild(checkboxElement);
-    talkthemeItemElement.appendChild(titleElement);
-    talkthemeItemElement.appendChild(deleteButton);
+    talkThemeItemElement.appendChild(checkboxElement);
+    talkThemeItemElement.appendChild(titleElement);
+    talkThemeItemElement.appendChild(deleteButton);
 
-    return talkthemeItemElement;
+    return talkThemeItemElement;
   }
 }
 
