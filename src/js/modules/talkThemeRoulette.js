@@ -28,22 +28,25 @@ const talkThemeRoulette = () => {
   /**
    * @type {Element} トークテーマ表示要素の取得
    */
-  const talkThemeDisplayElement = document.querySelector("#js-theme_display");
+  const talkThemeDisplayElement = document.querySelector("#js-theme-display");
 
   /**
    * STARTボタンの取得
    */
-  const startButtonElement = document.querySelector("#js-start_button");
+  const startButtonElement = document.querySelector("#js-start-button");
 
   /**
    * STOPボタンの取得
    */
-  const stopButtonElement = document.querySelector("#js-stop_button");
+  const stopButtonElement = document.querySelector("#js-stop-button");
+
+  // インターバル用の変数
+  let rouletteInterval;
 
   /**
    * トークテーマリストの表示を更新
    */
-  talkThemeListModel.onChange(() => {
+  function updateTalkThemeList () {
     /**
      * @type {Element} トークテーマリストをまとめる
      */
@@ -58,6 +61,10 @@ const talkThemeRoulette = () => {
     // トークテーマリストのコンテナ要素の中身を更新
     containerElement.innerHTML = '';
     containerElement.appendChild(talkThemeListElement);
+  }
+
+  talkThemeListModel.onChange(() => {
+    updateTalkThemeList();
   });
 
   talkThemeListModel.emitChange();
@@ -71,11 +78,11 @@ const talkThemeRoulette = () => {
       completed: false
     }));
     inputElement.value = "";
+    updateTalkThemeList();
   });
 
   function createTalkThemeItemElement(item) {
     const talkThemeItemElement = document.createElement('li');
-
     const checkboxElement = document.createElement('input');
     checkboxElement.type = 'checkbox';
     checkboxElement.checked = item.completed;
@@ -102,6 +109,39 @@ const talkThemeRoulette = () => {
 
     return talkThemeItemElement;
   }
+
+  function getRandomIndex(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  function getRandomTheme() {
+    const talkThemeItems = talkThemeListModel.getTalkThemeItems();
+    const randomIndex = getRandomIndex(talkThemeItems.length);
+    return talkThemeItems[randomIndex];
+  }
+
+  function startRoulette() {
+    startButtonElement.disabled = true;
+    
+    rouletteInterval = setInterval(() => {
+      const randomTheme = getRandomTheme();
+      talkThemeDisplayElement.textContent = randomTheme.title;
+    }, 100);
+  }
+
+  function stopRoulette() {
+    startButtonElement.disabled = false;
+
+    clearInterval(rouletteInterval);
+
+    setTimeout(() => {
+      const randomTheme = getRandomTheme();
+      talkThemeDisplayElement.textContent = randomTheme.title;
+    }, 500);
+  }
+
+  startButtonElement.addEventListener("click", startRoulette);
+  stopButtonElement.addEventListener("click", stopRoulette);
 }
 
 export default talkThemeRoulette;

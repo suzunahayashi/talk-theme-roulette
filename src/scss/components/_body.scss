@@ -1,0 +1,12 @@
+@use 'modules/vars';
+
+.theme_display {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.theme_display {
+  &.active {
+    opacity: 1;
+  }
+}
