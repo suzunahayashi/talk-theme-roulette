@@ -1,3 +1,3 @@
-import fn from './modules/sample';
+import talkThemeRoulette from './modules/talkThemeRoulette';
 
-fn('sample');
+talkThemeRoulette();
