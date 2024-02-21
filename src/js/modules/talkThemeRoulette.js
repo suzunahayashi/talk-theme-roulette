@@ -40,7 +40,10 @@ const talkThemeRoulette = () => {
    */
   const stopButtonElement = document.querySelector("#js-stop-button");
 
-  // インターバル用の変数
+  /**
+   * ルーレット用のインターバル
+   * @type {number}
+   */
   let rouletteInterval;
 
   /**
@@ -63,12 +66,15 @@ const talkThemeRoulette = () => {
     containerElement.appendChild(talkThemeListElement);
   }
 
+  // トークテーマが変更された際の処理
   talkThemeListModel.onChange(() => {
     updateTalkThemeList();
   });
 
+  // 初期表示のために一度、呼び出し
   talkThemeListModel.emitChange();
 
+  // トークテーマ追加時の処理
   formElement.addEventListener("submit", (e) => {
     //本来のsubmitイベントの動作を止める
     e.preventDefault();
@@ -81,6 +87,11 @@ const talkThemeRoulette = () => {
     updateTalkThemeList();
   });
 
+  /**
+   * トークテーマアイテムの要素を生成
+   * @param {TalkThemeItemModel} item トークテーマアイテムのモデル
+   * @returns {Element} 生成されたトークテーマアイテムの要素
+   */
   function createTalkThemeItemElement(item) {
     const talkThemeItemElement = document.createElement('li');
     const checkboxElement = document.createElement('input');
@@ -110,16 +121,26 @@ const talkThemeRoulette = () => {
     return talkThemeItemElement;
   }
 
+  /**
+   * ランダムなインデックスを取得する
+   * @param {number} max 最大値
+   * @returns {number}
+   */
   function getRandomIndex(max) {
     return Math.floor(Math.random() * max);
   }
 
+  /**
+   * ランダムなトークテーマを取得
+   * @returns {TalkThemeItemModel} ランダムなトークテーマ
+   */
   function getRandomTheme() {
     const talkThemeItems = talkThemeListModel.getTalkThemeItems();
     const randomIndex = getRandomIndex(talkThemeItems.length);
     return talkThemeItems[randomIndex];
   }
 
+  // ルーレットを開始
   function startRoulette() {
     startButtonElement.disabled = true;
     
@@ -129,6 +150,7 @@ const talkThemeRoulette = () => {
     }, 100);
   }
 
+  // ルーレットを停止
   function stopRoulette() {
     startButtonElement.disabled = false;
 
