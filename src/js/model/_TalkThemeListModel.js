@@ -15,8 +15,10 @@ export class TalkThemeListModel extends EventEmitter {
     }
 
     defaultThemes() {
-      this.addTalkTheme(new TalkThemeItemModel({ title: "test1", completed: false }));
-      this.addTalkTheme(new TalkThemeItemModel({ title: "test2", completed: false }));
+      this.addTalkTheme(new TalkThemeItemModel({ title: "今週末の予定は？または先週末は何をした？🏖", completed: false }));
+      this.addTalkTheme(new TalkThemeItemModel({ title: "学生時代の部活は？", completed: false }));
+      this.addTalkTheme(new TalkThemeItemModel({ title: "今まで行って良かった旅行先", completed: false }));
+      this.addTalkTheme(new TalkThemeItemModel({ title: "オススメのカフェやごはん屋さん🍴☕️", completed: false }));
       this.emitChange();
     }
 

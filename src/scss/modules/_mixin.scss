@@ -1,5 +1,9 @@
-@mixin mq() {
-  @media #{'screen and (max-width: 1024px)'} {
+// メディアクエリ用の変数定義
+$sp: '1024px';
+
+// メディアクエリ
+@mixin sp {
+  @media only screen and (max-width: $sp) {
     @content;
   }
 }

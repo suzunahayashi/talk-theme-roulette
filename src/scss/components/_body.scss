@@ -1,12 +1,58 @@
-@use 'modules/vars';
+@use 'modules/vars' as var;
+@use '../modules/mixin' as mixin;
 
-.theme_display {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-}
+.theme__roulette {
+  color: var.$black;
+  padding: 0 30px;
 
-.theme_display {
-  &.active {
+  .theme__display {
     opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    padding: 40px;
+    margin-top: 20px;
+    background-color: var.$lightgreen;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 5px;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .theme__buttonContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: bold;
+  }
+
+  .theme__startButton {
+    padding: 16px 24px;
+    background-color: var.$green;
+    border: none;
+    border-radius: 5px;
+    color: var.$white;
+  }
+
+  .theme__stopButton {
+    padding: 16px 24px;
+    background-color: var.$green;
+    border: none;
+    border-radius: 5px;
+    color: var.$white;
+  }
+
+  .theme__add {
+    color: var.$black;
+    padding-top: 50px;
+  }
+
+  .theme__form {
+    font-size: 20px;
+  }
+  .theme_list {
+    padding: 20px 10px 0 10px;
   }
 }
