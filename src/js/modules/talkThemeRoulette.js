@@ -135,7 +135,9 @@ const talkThemeRoulette = () => {
    * @returns {TalkThemeItemModel} ランダムなトークテーマ
    */
   function getRandomTheme() {
+    // トークテーマリストを取得
     const talkThemeItems = talkThemeListModel.getTalkThemeItems();
+    // ランダムに1つ選択
     const randomIndex = getRandomIndex(talkThemeItems.length);
     return talkThemeItems[randomIndex];
   }
@@ -143,7 +145,8 @@ const talkThemeRoulette = () => {
   // ルーレットを開始
   function startRoulette() {
     startButtonElement.disabled = true;
-    
+
+    //0.1秒ごとにランダムにトークテーマを表示するインターバル
     rouletteInterval = setInterval(() => {
       const randomTheme = getRandomTheme();
       talkThemeDisplayElement.textContent = randomTheme.title;
@@ -154,15 +157,13 @@ const talkThemeRoulette = () => {
   function stopRoulette() {
     startButtonElement.disabled = false;
 
+    // ランダムにトークテーマを表示するインターバルを停止
     clearInterval(rouletteInterval);
-
-    setTimeout(() => {
-      const randomTheme = getRandomTheme();
-      talkThemeDisplayElement.textContent = randomTheme.title;
-    }, 500);
   }
 
+  // STARTボタンがクリックされた時の処理
   startButtonElement.addEventListener("click", startRoulette);
+  // STOPボタンがクリックされた時の処理
   stopButtonElement.addEventListener("click", stopRoulette);
 }
 
