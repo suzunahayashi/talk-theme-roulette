@@ -52,6 +52,17 @@
   .theme__form {
     font-size: 20px;
   }
+
+  .theme_add_button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    background-color: var.$lightgreen;
+    border: none;
+    border-radius: 5px;
+    color: var.$addgreen;
+    font-weight: bold;
+  }
+
   .theme_list {
     padding: 20px 10px 0 10px;
   }

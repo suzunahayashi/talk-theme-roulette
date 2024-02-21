@@ -12,6 +12,10 @@
   color: vars.$black;
   display: block;
   font-size: 45px;
+
+  @include mixin.sp {
+    font-size: 30px;
+  }
 }
 
 .header__titleJP {
