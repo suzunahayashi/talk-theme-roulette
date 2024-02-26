@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="description" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:title" content="title" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="description"/>
+  
+  <meta property="og:image" content="https://example.com/assets/images/ogp.png" />
+  <meta property="og:site_name" content="title" />
+  <meta property="og:locale" content="ja" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <title>Talk Theme Roulette</title>
+  <link rel="icon" href="./assets/images/favicon.ico" />
+  <link rel="canonical" href="https://example.com/" />
+  <link rel="stylesheet" href="./assets/css/common.css" />
+  <script src="./assets/js/common.js" defer></script>
+</head>
+
+  <body>
+    <main>
+      <h1 class="header__title">
+  <span class="header__titleEN">Talk Theme Roulette</span>
+  <span class="header__titleJP">トークテーマルーレット</span>
+</h1>
+
+      <!-- トークテーマルーレット -->
+<section class="theme__roulette">
+  <div class="theme__rouletteContainer">
+    <div id="js-theme-display" class="theme__display">No theme selected</div>
+    <div class="theme__buttonContainer">
+      <button id="js-start-button" class="theme__startButton">START</button>
+      <button id="js-stop-button" class="theme__stopButton">STOP</button>
+    </div>
+  </div>
+
+  <!-- トークテーマを追加する -->
+  <div class="theme__add">
+    <form id="js-theme-from" class="theme__form">新しいトークテーマ：
+      <input id="js-theme-form-input" class="theme_text_area" type="text" />
+      <button id="js-add-button" class="theme_add_button">追加</button>
+    </form>
+  </div>
+
+  <!-- トークテーマリスト -->
+  <div>
+    <div id="js-theme-list" class="theme_listContainer"></div>
+  </div>
+</section>
+
+    </main>
+  </body>
+</html>
