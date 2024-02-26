@@ -95,6 +95,8 @@ const talkThemeRoulette = () => {
   function createTalkThemeItemElement(item) {
     const talkThemeItemElement = document.createElement('li');
     const checkboxElement = document.createElement('input');
+    talkThemeItemElement.classList.add('theme__list');
+    checkboxElement.classList.add('theme__checkbox');
     checkboxElement.type = 'checkbox';
     checkboxElement.checked = item.completed;
     checkboxElement.addEventListener('change', () => {
@@ -105,13 +107,14 @@ const talkThemeRoulette = () => {
     });
 
     const deleteButton = document.createElement('button');
-    deleteButton.className = 'delete';
+    deleteButton.classList.add('theme__delete');
     deleteButton.textContent = '削除';
     deleteButton.addEventListener('click', () => {
       talkThemeListModel.deleteTalkTheme(item.id);
     });
 
     const titleElement = document.createElement('span');
+    titleElement.classList.add('theme__text')
     titleElement.textContent = item.title;
 
     talkThemeItemElement.appendChild(checkboxElement);

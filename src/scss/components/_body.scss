@@ -59,11 +59,55 @@
     background-color: var.$lightgreen;
     border: none;
     border-radius: 5px;
-    color: var.$addgreen;
+    color: var.$buttonGreen;
     font-weight: bold;
   }
 
-  .theme_list {
+  .theme_listContainer {
     padding: 20px 10px 0 10px;
+  }
+
+  .theme__list {
+    padding-top: 10px;
+  }
+
+  .theme__checkbox {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    vertical-align: -5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:checked {
+      &::before {
+        position: absolute;
+        top: 4px;
+        left: 7px;
+        transform: rotate(50deg);
+        width: 4px;
+        height: 8px;
+        border-right: 2px solid #000;
+        border-bottom: 2px solid #000;
+        content: '';
+      }
+    }
+  }
+
+  .theme__text {
+    padding-left: 5px;
+  }
+
+  .theme__delete {
+    padding: 4px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var.$white;
+    background-color: var.$buttonGreen;
+    border: none;
+    border-radius: 3px
   }
 }
