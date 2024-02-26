@@ -1,0 +1,25 @@
+@use 'modules/vars';
+@use '../modules/mixin' as mixin;
+
+.header__title {
+  color: vars.$black;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 30px 0 30px;
+}
+
+.header__titleEN {
+  color: vars.$black;
+  display: block;
+  font-size: 45px;
+
+  @include mixin.sp {
+    font-size: 30px;
+  }
+}
+
+.header__titleJP {
+  color: vars.$black;
+  display: block;
+  margin-top: 15px;
+}

@@ -1,0 +1,113 @@
+@use 'modules/vars' as var;
+@use '../modules/mixin' as mixin;
+
+.theme__roulette {
+  color: var.$black;
+  padding: 0 30px;
+
+  .theme__display {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    padding: 40px;
+    margin-top: 20px;
+    background-color: var.$lightgreen;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 5px;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .theme__buttonContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: bold;
+  }
+
+  .theme__startButton {
+    padding: 16px 24px;
+    background-color: var.$green;
+    border: none;
+    border-radius: 5px;
+    color: var.$white;
+  }
+
+  .theme__stopButton {
+    padding: 16px 24px;
+    background-color: var.$green;
+    border: none;
+    border-radius: 5px;
+    color: var.$white;
+  }
+
+  .theme__add {
+    color: var.$black;
+    padding-top: 50px;
+  }
+
+  .theme__form {
+    font-size: 20px;
+  }
+
+  .theme_add_button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    background-color: var.$lightgreen;
+    border: none;
+    border-radius: 5px;
+    color: var.$buttonGreen;
+    font-weight: bold;
+  }
+
+  .theme_listContainer {
+    padding: 20px 10px 0 10px;
+  }
+
+  .theme__list {
+    padding-top: 10px;
+  }
+
+  .theme__checkbox {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    vertical-align: -5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:checked {
+      &::before {
+        position: absolute;
+        top: 4px;
+        left: 7px;
+        transform: rotate(50deg);
+        width: 4px;
+        height: 8px;
+        border-right: 2px solid #000;
+        border-bottom: 2px solid #000;
+        content: '';
+      }
+    }
+  }
+
+  .theme__text {
+    padding-left: 5px;
+  }
+
+  .theme__delete {
+    padding: 4px;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var.$white;
+    background-color: var.$buttonGreen;
+    border: none;
+    border-radius: 3px
+  }
+}
